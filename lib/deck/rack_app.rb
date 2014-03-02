@@ -1,5 +1,6 @@
 require 'json'
-require 'coderay'
+# require 'coderay'
+require 'rygments'
 require 'rack/codehighlighter'
 require 'deck'
 
@@ -20,7 +21,7 @@ module Deck
       Rack::Builder.app do
         use Rack::ShowExceptions
         use Rack::ShowStatus
-        use Rack::Codehighlighter, :coderay,
+        use Rack::Codehighlighter, :rygments,
           :element => "pre>code",
           :markdown => true,
           :pattern => /\A[:@]{3}\s?(\w+)\s*(\n|&#x000A;)/i
